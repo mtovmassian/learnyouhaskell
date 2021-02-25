@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 20c8d62f432804dc25da7838ba4a25a05191b9fcd14275a9ea5d6d2fd43953a9
+-- hash: c9e9126778ca23b570bc789520867bc591ec62cbe3ba7de642e0686f54933080
 
 name:           learnyouhaskell
 version:        0.1.0.0
@@ -27,6 +27,8 @@ source-repository head
 
 library
   exposed-modules:
+      Hackerrank.Exponential
+      Hackerrank.HackerRankPascalTriangle
       Lib
       OwnTypes.Algebraic
   other-modules:

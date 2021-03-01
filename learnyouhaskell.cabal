@@ -28,7 +28,6 @@ source-repository head
 library
   exposed-modules:
       Hackerrank.Exponential
-      Hackerrank.HackerRankPascalTriangle
       Lib
       OwnTypes.Algebraic
   other-modules:

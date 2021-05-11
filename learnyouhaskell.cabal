@@ -27,9 +27,9 @@ source-repository head
 
 library
   exposed-modules:
-      Hackerrank.Exponential
+--      Hackerrank.Exponential
       Lib
-      OwnTypes.Algebraic
+--      OwnTypes.YesNo
   other-modules:
       Paths_learnyouhaskell
   hs-source-dirs:

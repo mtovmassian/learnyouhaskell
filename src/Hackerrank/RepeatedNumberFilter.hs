@@ -1,18 +1,23 @@
 --module Hackerrank.RepeatedNumberFilter where
 
+import Control.Monad
 import qualified Data.Map as Map
 import Data.List (sort)
 
-filterRepeatedNumbers' :: [Int] -> Map.Map Int Int -> [Int]
-filterRepeatedNumbers' [] countMap = sort [k |(k,v) <- Map.toList countMap, v > 1 ]
-filterRepeatedNumbers' (x:xs) numCountMap = filterRepeatedNumbers' xs newNumCountMap where
+countRepetitions:: Ord a => [a] -> Map.Map a Int -> [(a, Int)]
+countRepetitions [] countMap = Map.toList countMap
+countRepetitions (x:xs) numCountMap = countRepetitions xs newNumCountMap where
   newNumCountMap = Map.insertWith (+) x 1 numCountMap
 
-filterRepeatedNumbers :: [Int] -> [Int]
-filterRepeatedNumbers listOfNumbers = filterRepeatedNumbers' listOfNumbers Map.empty
+filterRepeatedNumbers :: [Int] -> Int -> [Int]
+filterRepeatedNumbers listOfNumbers repetitionCountMin = sort repeatedNumbers where
+  repeatedNumbers = [k |(k,v) <- repetitions, v >= repetitionCountMin ]
+  repetitions = countRepetitions listOfNumbers Map.empty
 
 main = do
-  putStrLn "Type a serie of numbers:"
-  rawNumbers <- getLine
-  let numbers = map read (words rawNumbers) :: [Int]
-  putStrLn . show $ filterRepeatedNumbers numbers
+  numberOfTestCases <- getLine
+  forM [1..read numberOfTestCases :: Int] (\_ -> do
+    [listSize, repetitionCountMin] <- getLine
+    print listSize
+    print repetitionCountMin)
+  
